@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+
+{% load static %}
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>Tercera Pre Entrega</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'AppValfosca/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'AppValfosca/css/cover.css' %}" rel="stylesheet">
+  </head>
+
+  <body class="text-left" >
+
+    <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+      <header class="masthead mb-auto">
+        <div class="inner">
+          <h5 class="masthead-brand"></h5>
+          <nav class="nav nav-masthead justify-content-center">
+            <a class="nav-link active" href="{% url 'index' %}">INICIO</a>
+            <a class="nav-link active" href="{% url 'mayorista' %}">Clientes Mayoristas</a>
+            <a class="nav-link active" href="{% url 'minorista' %}">Clientes Minoristas</a>
+            <a class="nav-link active" href="{% url 'pedidos' %}">Pedidos</a>
+            <a class="nav-link active" href="{% url 'cancelar' %}">Cancelaciones</a>
+            <!-- <a class="nav-link active" href="#">Buscar</a> -->
+
+            <!-- <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Buscar</button>
+              </form> -->
+              
+            <a class="nav-link active" href="#"><form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit"><a href="{% url 'buscar' %}">Buscar</a></button>
+              </form></a>
+
+          </nav>
+        </div>
+      </header>
+
+
+
+      {% block principal %}
+      <!-- llama en el archivo index.html las lineas de codigo que se encuentran dentro de este bloque -->
+      {% endblock %}
+
+
+
+      <footer class="mastfoot mt-auto">
+        <br>
+        <div class="inner">
+          <center><p>Coderhouse - <a href="https://coderhouse.com//online/python">Curso Python</a></p></center>
+        </div>
+      </footer>
+    </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="{% static 'AppValfosca/js/popper.min.js' %}"></script>
+    <script src="{% static 'AppValfosca/js/bootstrap.min.js' %}"></script>
+  </body>
+</html>

@@ -15,10 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from AppValfosca.views import index
+from AppValfosca.views import index, venta_mayorista, venta_minorista, pedidos, cancelacion_pedidos, buscar
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', index),
+    path('', index, name = "index"),
+    path('venta-mayorista/', venta_mayorista, name = "mayorista"),
+    path('venta-minorista/', venta_minorista, name = "minorista"),
+    path('pedidos/', pedidos, name = "pedidos"),
+    path('cancelaciones/', cancelacion_pedidos, name = "cancelar"),
+    path('busqueda/', buscar, name = "buscar"),
 ]
