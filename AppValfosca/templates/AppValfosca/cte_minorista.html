@@ -6,15 +6,41 @@
 <main role="main" class="inner cover">
     <!-- <img src="{% static 'AppValfosca/assets/bg-masthead.jpg' %}" height="598" width="398"> -->
     <br>
-    <center><img src="{% static 'AppValfosca/assets/img/cte-minor.jpg' %}" alt="centered image" height="769" width="1200"> </center>
+    <center><img src="{% static 'AppValfosca/assets/img/cte-minor.jpg' %}" alt="centered image" height="769" width="1200" style="border-radius: 2em;"> </center>
     <!-- <center><img src="{% static 'AppValfosca/assets/bg-masthead.jpg' %}" alt="centered image" height="598" width="398"> </center> -->
     <br>
-    <h1 class="cover-heading">Formulario Clientes Minoristas</h1>
+    <center><h1 class="cover-heading">Formulario Clientes Minoristas</h1></center>
 
     <!-- <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
     <p class="lead">
         <a href="#" class="btn btn-lg btn-secondary">Learn more</a>
     </p> -->
+
+
+    <center><form action="{% url 'minorista' %}"  method="post">
+
+        {% csrf_token %}
+
+        <p> Nombre: <br>
+            <input type = "text" placeholder="Nombre" name="nombre">
+        <p> Apellido: <br>
+            <input type = "text" placeholder="Apellido" name="apellido">
+        <p> Fecha de Nacimiento: <br>
+            <input type = "text" placeholder="dd-mm-aaaa" name="fecha_nacimiento">
+        <p> DNI: <br>
+            <input type = "text" placeholder="Ej. 38658213" name="dni">
+        <p> Correo electronico: <br>
+            <input type = "text" placeholder="Email" name="email">
+        <p> Direccion: <br>
+            <input type = "text" placeholder="Direccion" name="direccion">
+        <p> Telefono: <br>
+            <input type = "text" placeholder="0341-672532" name="telefono">
+        <p> Codigo Postal: <br>
+            <input type = "text" placeholder="Ej. 2000" name="c_postal">
+        <br>
+        <br>
+        <input type = "submit" value = "Enviar">
+    </form></center>
 </main>
 
 {% endblock %}
