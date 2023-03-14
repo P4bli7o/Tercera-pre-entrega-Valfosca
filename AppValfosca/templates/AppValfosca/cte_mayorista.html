@@ -9,44 +9,62 @@
     <center><img src="{% static 'AppValfosca/assets/img/cte-mayor.jpg' %}" alt="centered image" height="769" width="1200" style="border-radius: 2em;"> </center>
     <!-- <center><img src="{% static 'AppValfosca/assets/bg-masthead.jpg' %}" alt="centered image" height="598" width="398"> </center> -->
     <br>
-    <center><h1 class="cover-heading">Formulario Clientes Mayoristas</h1></center>
+    <center><h1 class="cover-heading">Formulario Registro - Clientes Mayoristas</h1></center>
 
     <!-- <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
     <p class="lead">
         <a href="#" class="btn btn-lg btn-secondary">Learn more</a>
     </p> -->
-
     
-    <center><form action="{% url 'mayorista' %}"  method="post">
+    <br>
 
-        {% csrf_token %}
 
-        <p> Nombre de la Empresa: <br> 
-            <input type = "text" placeholder="Nombre Empresa" name="nombre_empresa">
-        <p> CUIT: <br>
-        <input type = "text" placeholder="Ej. 27392543267" name="cuit">
-        <p> Nombre: <br>
-            <input type = "text" placeholder="Nombre" name="nombre">
-        <p> Apellido: <br>
-            <input type = "text" placeholder="Apellido" name="apellido">
-        <p> Fecha de Nacimiento: <br>
-            <input type = "text" placeholder="dd-mm-aaaa" name="fecha_nacimiento">
-        <p> DNI: <br>
-            <input type = "text" placeholder="Ej. 38658213" name="dni">
-        <p> Correo electronico: <br>
-            <input type = "text" placeholder="Email" name="email">
-        <p> Direccion: <br>
-            <input type = "text" placeholder="Direccion" name="direccion">
-        <p> Telefono: <br>
-            <input type = "text" placeholder="Ej. 0341-672532" name="telefono">
-        <p> Codigo Postal: <br>
-            <input type = "text" placeholder="Ej. 2000" name="c_postal">
-        <br>
-        <br>
-        <input type = "submit" value = "Enviar">
-    </form></center>
+    <br>
 
-    
+
+
+    <div class="inner cover-container">
+        <div class="flexbox-container" >
+            
+
+            <div style="border-radius: 1em; background-color: rgb(87, 89, 97); text-align: right; padding-right: 5em; padding-top: 2.5em; padding-bottom: 2.5em;">
+                <br>
+                <form action="{% url 'registro_mayorista' %}" method="post">
+                    
+                    {% csrf_token %}
+                    {{form.as_p}}
+                    <input type="reset" value = "Borrar campos">
+                    <input type="submit" value = "Enviar">
+                    
+                </form>
+                <br>
+                
+            </div>
+            
+            <div style="border-radius: 1em; background-color: rgb(87, 89, 97); padding-left: 3em; padding-top: 2em; padding-right: 3em; ">
+
+                <ul>
+                    <h4 style="text-align: center;">Lista de Clientes Mayoristas</h4>
+
+                    <br>
+
+                    {% for mayorista in mayoristas %}
+                    
+                        <li> {{mayorista.nombre_de_empresa}} <br>- Cuit: {{mayorista.cuit}} <br>- Direccion: {{mayorista.direccion}} </li>
+                        <!-- <li> print({{mayorista}})</li> no sirve pq muestra el print tb-->
+                        <!-- <li> {{mayorista}}</li> me tira el str con el multistring pero todo junto-->
+                    
+                    {% endfor %}
+
+                </ul>
+
+            </div>
+            <!-- "border-radius: 1em; background-color: rgb(43, 51, 87);"> -->
+            
+
+        </div>
+    </div>
+
 </main>
 
 {% endblock %}

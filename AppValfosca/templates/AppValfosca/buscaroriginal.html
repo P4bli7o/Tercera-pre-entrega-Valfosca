@@ -17,6 +17,35 @@
     </p> -->
 
     <br>
+    <form action="{% url 'buscar-datos' %}" method="get">
+        <p> Nombre se Empresa o C.P: <br>
+        <input type="text" style="border-radius: .5em" placeholder="Buscar" name="criterio">
+        <input type="submit" value = "Buscar">
+        <input type="reset" value = "Borrar campo">
+        
+    </form>
+
+    <br>
+    {% if criterio_valid != "" %}
+    <ul>
+        {% for mayorista in mayoristas %}
+    
+            <li> {{mayorista.nombre_de_empresa}} - {{mayorista.cuit}} - {{mayorista.direccion}} </li>
+            <!-- <li> print({{mayorista}}) - </li> -->
+    
+        {% endfor %}
+    </ul>
+
+    <ul>
+        {% for c in cp %}
+    
+            <li> {{c.nombre_de_empresa}} - {{c.cuit}} - {{c.direccion}} </li>
+            <!-- <li> print({{mayorista}}) - </li> -->
+    
+        {% endfor %}
+    </ul>
+    {% endif%}
+
 
     <div class="inner cover-container">
         <div class="flexbox-container" >
@@ -38,18 +67,18 @@
                 <br>
             </div>
             
-            <div style="border-radius: 1em; background-color: rgb(87, 89, 97); padding-left: 3em; padding-top: 2em; padding-right: 3em; ">
+            <div style="border-radius: 1em; background-color: rgb(87, 89, 97); padding-left: 3em; padding-top: 2em; ">
 
                 <ul>
-                    <h4 style="text-align: center;">Datos de la busqueda realizada</h4>
+                    <h4 style="text-align: left;">Datos de la busqueda realiazada</h4>
 
                     <br>
 
-                    {% if criterio_valido != "" %}
+                    {% if criterio_valid != "" %}
                     <ul>
                         {% for mayorista in mayoristas %}
                     
-                            <li> {{mayorista.nombre_de_empresa}} <br>- {{mayorista.cuit}} <br>- {{mayorista.direccion}} </li>
+                            <li> {{mayorista.nombre_de_empresa}} - {{mayorista.cuit}} - {{mayorista.direccion}} </li>
                             <!-- <li> print({{mayorista}}) - </li> -->
                     
                         {% endfor %}
@@ -58,7 +87,7 @@
                     <ul>
                         {% for c in cp %}
                     
-                            <li> {{c.nombre_de_empresa}} <br>- {{c.cuit}} <br>- {{c.direccion}} </li>
+                            <li> {{c.nombre_de_empresa}} - {{c.cuit}} - {{c.direccion}} </li>
                             <!-- <li> print({{mayorista}}) - </li> -->
                     
                         {% endfor %}

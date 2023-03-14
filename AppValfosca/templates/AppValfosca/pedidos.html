@@ -16,30 +16,50 @@
         <a href="#" class="btn btn-lg btn-secondary">Learn more</a>
     </p> -->
 
+    <br>
+    <br>
 
-    <center><form action="{% url 'pedidos' %}"  method="post">
+    <div class="inner cover-container">
+        <div class="flexbox-container" >
+            
 
-        {% csrf_token %}
+            <div style="border-radius: 1em; background-color: rgb(87, 89, 97); text-align: right; padding-right: 5em; padding-top: 2.5em; padding-bottom: 2.5em;">
+                <br>
+                <form action="{% url 'registro_pedidos' %}" method="post">
+                    
+                    {% csrf_token %}
+                    {{form.as_p}}
+                    <input type="reset" value = "Borrar campos">
+                    <input type="submit" value = "Enviar">
+                    
+                </form>
+                <br>
+            </div>
+            
+            <div style="border-radius: 1em; background-color: rgb(87, 89, 97); padding-left: 3em; padding-top: 2em; padding-right: 3em; ">
 
-        <p> Nombre y Apellido del Comprador: <br>
-            <input type = "text" placeholder="Nombre y Apellido" name="nombre_comprador">
-        <p> Producto a comprar: <br>
-            <input type = "text" placeholder="Producto" name="producto">
-        <p> Cantidad: <br>
-            <input type = "text" placeholder="Cantidad" name="cantidad">
-        <p> Metodo de Pago: <br>
-            <input type = "text" placeholder="Efectivo/Transf./Tarjeta"name="metodo_pago">
-        <p> Retira en sucursal: <br>
-            <input type = "text" placeholder="Si/No" name="retiro">
-        <p> Quien Retira: <br>
-            <input type = "text" placeholder="Nombre y Apellido" name="quien_retira">
-        <p> Comentario: <br>
-            <input type = "text" placeholder="Escriba alguna inquietud" name="comentarios">
+                <ul>
+                    <h4 style="text-align: center;">Lista de Pedidos</h4>
+                    <br>
 
-        <br>
-        <br>
-        <input type = "submit" value = "Enviar">
-    </form></center>
+                    {% for pedido in pedidos %}
+                    
+                        <li> Cliente: {{pedido.nombre_y_apellido_del_comprador}} <br>- Producto: {{pedido.producto_a_comprar}} <br>- Pago: {{pedido.metodo_de_pago}} <br>- Retiro en sucursal: {{pedido.retira_en_sucursal}} </li>
+                        <!-- <li> print({{mayorista}})</li> no sirve pq muestra el print tb-->
+                        <!-- <li> {{mayorista}}</li> me tira el str con el multistring pero todo junto-->
+                    
+                    {% endfor %}
+
+                </ul>
+
+            </div>
+            <!-- "border-radius: 1em; background-color: rgb(43, 51, 87);"> -->
+            
+
+        </div>
+    </div>
+
+
 </main>
 
 {% endblock %}

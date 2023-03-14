@@ -1,0 +1,85 @@
+{% extends "AppValfosca/base.html" %}
+{% load static %}
+
+{% block principal %}
+
+<main role="main" class="inner cover">
+    <!-- <img src="{% static 'AppValfosca/assets/bg-masthead.jpg' %}" height="598" width="398"> -->
+    <br>
+    <center><img src="{% static 'AppValfosca/assets/img/cte-mayor.jpg' %}" alt="centered image" height="769" width="1200" style="border-radius: 2em;"> </center>
+    <!-- <center><img src="{% static 'AppValfosca/assets/bg-masthead.jpg' %}" alt="centered image" height="598" width="398"> </center> -->
+    <br>
+    <center><h1 class="cover-heading">Formulario Registro Clientes Mayoristas</h1></center>
+
+    <!-- <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
+    <p class="lead">
+        <a href="#" class="btn btn-lg btn-secondary">Learn more</a>
+    </p> -->
+    
+    <br>
+    <form action="{% url 'registro_mayorista' %}" method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value = "Enviar">
+        
+    </form>
+
+    <br>
+
+    <ul>
+        {% for mayorista in mayoristas %}
+    
+            <li> {{mayorista.nombre_de_empresa}} - {{mayorista.cuit}} - {{mayorista.direccion}} </li>
+            <!-- <li> print({{mayorista}}) - </li> -->
+    
+        {% endfor %}
+    </ul>
+
+    <div class="inner cover-container">
+        <div class="flexbox-container" >
+            <div style="background-color: transparent;">Columna 1 Prueba 3</div>
+
+            <div style="border-radius: 1em; background-color: transparent;"><form action="/cancelacionesprueba3/"  method="post">
+
+                {% csrf_token %}
+
+                <p> Fecha de compra Factura: <br> 
+                    <input type = "text" placeholder="dd-mm-aaaa" name="fecha_factura">
+                <p> Nro de orden de compra: <br>
+                    <input type = "text" placeholder="Ej. 0004253068" name="nro_orden_compra">
+                <p> Nombre y Apellido del Comprador: <br>
+                    <input type = "text" placeholder="Nombre y Apellido" name="nombre_comprador">
+                <p> Sucursal donde realizo la compra: <br>
+                    <input type = "text" placeholder="Sucursal" name="sucursal">
+                </form>
+            </div>
+            
+            <div style="border-radius: 1em; background-color: transparent;"><form action="/cancelacionesprueba3/"  method="post">
+
+                {% csrf_token %}
+
+                <p> Desea cancelar el Pedido: <br>
+                    <input type = "text" placeholder="Si / No"name="cancelar_pedido">
+                <p> Desea realizar algun cambio: <br>
+                    <input type = "text" placeholder="Si / No" name="cambio">
+                <p> Comentario: <br>
+                    <input type = "text" placeholder="Describa el problema" name="comentarios">
+                <br>
+                <br>
+                <input type = "submit" value = "Enviar">
+                </form>
+            </div>
+            
+            <div style="background-color: transparent;">Columna 4</div>
+        </div>
+    </div>
+
+
+
+
+
+    
+
+</main>
+
+{% endblock %}
