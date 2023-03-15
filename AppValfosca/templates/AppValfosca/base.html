@@ -34,30 +34,8 @@
             <a class="nav-link active" href="{% url 'minorista' %}">Clientes Minoristas</a>
             <a class="nav-link active" href="{% url 'pedidos' %}">Pedidos</a>
             <a class="nav-link active" href="{% url 'cancelar' %}">Cancelaciones</a>
-            <!-- <a class="nav-link active" href="AppValfosca/cancelaciones.html">Cancelaciones</a> -->
-            <!-- <a class="nav-link active" href="{% url 'buscar' %}">Busquedas</a> -->
+ 
 
-            <!-- <a class="nav-link active">  este funciona boton simple con campo
-            <form action="{% url 'buscar-datos' %}" method="get">
-                <input type = "text" placeholder="Buscar" name="criterio">
-                <input type="submit" value = "Buscar">
-                
-            </form>
-            </a> -->
-
-            <!-- <a class="nav-link active" href="#">Buscar</a> -->
-
-            <!-- <form class="d-flex">
-              <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Buscar</button>
-              </form> -->
-              
-            <!-- <a class="nav-link active">
-                <form action = "{% url 'buscar' %}" class="d-flex">
-                <input class="form-control me-2" name = "criterio" type="search" placeholder="Buscar" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit"><a href="{% url 'buscar' %}">Buscar</a></button>
-                </form>
-            </a> -->
 
             <a class="nav-link active">
                 <form action = "{% url 'buscar-datos' %}" class="d-flex">
@@ -65,38 +43,28 @@
                 <button class="btn btn-outline-success" style="border-radius: .5em" type="submit">Buscar</a></button>
                 </form>
             </a>
-            
-            <!-- <form action = "{% url 'mayorista' %}" class="d-flex">
-            <input class="form-control me-2" name = "criterio" type="search" placeholder="Buscar" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Buscar</a></button>
-            </form> -->
-            
+                       
 
           </nav>
         </div>
       </header>
       
 
-      <!-- <div id="middle"></div> -->
+ 
       {% block principal %}
       <!-- llama en el archivo index.html las lineas de codigo que se encuentran dentro de este bloque -->
       {% endblock %}
 
-      
-      <!-- <main class="text-right">
-        <a href="#top">Back to top</a>
-      </main> -->
+
       
       <footer class="mastfoot mt-auto">
         <br>
         <div class="inner">
-            <!-- <a href="#top">Back to top</a> -->
+            
             <div class="text-right">
                 <a href="#top">Back to top</a>
             </div>
-            <!-- <div class="text-right">
-                <a href="#middle">Back to top</a>
-            </div> -->
+
             <center><p>2023 - Coderhouse - <a href="https://coderhouse.com//online/python">Curso Python</a> - <a href="http://127.0.0.1:8000/admin">Ingresar al Administrador</a></p></center>
           
         </div>

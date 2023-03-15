@@ -4,17 +4,14 @@
 {% block principal %}
 
 <main role="main" class="inner cover">
-    <!-- <img src="{% static 'AppValfosca/assets/bg-masthead.jpg' %}" height="598" width="398"> -->
+
     <br>
     <center><img src="{% static 'AppValfosca/assets/img/buscar.jpg' %}" alt="centered image" height="769" width="1200" style="border-radius: 2em;"> </center>
-    <!-- <center><img src="{% static 'AppValfosca/assets/bg-masthead.jpg' %}" alt="centered image" height="598" width="398"> </center> -->
+
     <br>
     <center><h1 class="cover-heading">Formulario de Busqueda</h1></center>
 
-    <!-- <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
-    <p class="lead">
-        <a href="#" class="btn btn-lg btn-secondary">Learn more</a>
-    </p> -->
+
 
     <br>
 
@@ -54,7 +51,7 @@
                             {% for mayorista in mayoristas %}
                         
                                 <li> Empresa: {{mayorista.nombre_de_empresa}} <br>- Cuit: {{mayorista.cuit}} <br>- Direccion: {{mayorista.direccion}} <br> --- Mayorista--- </li>
-                                <!-- <li> print({{mayorista}}) - </li> -->
+
                         
                             {% endfor %}
                         </ul>
@@ -63,7 +60,7 @@
                             {% for c in cp %}
                         
                                 <li> Empresa: {{c.nombre_de_empresa}} <br>- Cuit: {{c.cuit}} <br>- Direccion: {{c.direccion}} <br> --- Mayorista--- </li>
-                                <!-- <li> print({{mayorista}}) - </li> -->
+
                         
                             {% endfor %}
                         </ul>
@@ -74,7 +71,7 @@
                             {% for minorista in minoristas %}
                         
                                 <li> Cliente: {{minorista.apellido}} {{minorista.nombre}} <br>- {{minorista.email}} <br>- {{minorista.direccion}} <br> --- Minorista--- </li>
-                                <!-- <li> print({{mayorista}}) - </li> -->
+
                         
                             {% endfor %}
                         </ul>
@@ -84,7 +81,7 @@
                             {% for pedido in pedidos %}
                         
                                 <li> Cliente: {{pedido.nombre_y_apellido_del_comprador}} <br>- Producto: {{pedido.producto_a_comprar}} <br>- Pago: {{pedido.metodo_de_pago}} <br> --- Pedidos--- </li>
-                                <!-- <li> print({{mayorista}}) - </li> -->
+
                         
                             {% endfor %}
                         </ul>
@@ -94,7 +91,7 @@
                             {% for cancelacion in cancelaciones %}
                         
                                 <li> Cliente: {{cancelacion.nombre_y_apellido_del_comprador}} <br>- Nro de orden: {{cancelacion.nro_de_orden_de_compra}} <br>- Fecha de compra: {{cancelacion.fecha_de_compra_factura}} <br> --- Cancelaciones--- </li>
-                                <!-- <li> print({{mayorista}}) - </li> -->
+
                         
                             {% endfor %}
                         </ul>
@@ -104,7 +101,6 @@
                 </ul>
 
             </div>
-            <!-- "border-radius: 1em; background-color: rgb(43, 51, 87);"> -->
             
 
         </div>

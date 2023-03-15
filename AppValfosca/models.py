@@ -29,10 +29,9 @@ class Mayorista(models.Model):
     def __str__(self):
         return f"{self.nombre_de_empresa} - {self.direccion} - CP: {self.codigo_postal}"
 
-#Para probar si funciona la clase 
-#py manage.py shell
-#from AppValfosca.models import Mayorista    
-#mayor = Mayorista("1","Pab","Val","123","p@.com","lalala 123","4513636453","2000")
+
+
+
 
 class Minorista(models.Model):
     nombre = models.CharField(max_length = 60)

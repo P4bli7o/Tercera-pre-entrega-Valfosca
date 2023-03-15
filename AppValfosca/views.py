@@ -6,11 +6,6 @@ def index(request):
     return render(request, "AppValfosca/index.html")
 
 
-# def venta_mayorista(request):
-
-#     mayoristas = Mayorista.objects.all()
-
-#     return render(request, "AppValfosca/cte_mayorista.html", {"mayoristas": mayoristas})
 
 def venta_mayorista(request):
 
@@ -18,7 +13,6 @@ def venta_mayorista(request):
         "form": MayoristaForm(),
         "mayoristas": Mayorista.objects.all(),
     }
-
     return render(request, "AppValfosca/cte_mayorista.html", context)
 
 
@@ -55,6 +49,7 @@ def registrar_minorista(request):
 
 
 
+
 def pedidos(request):
     context = {
         "form": PedidoForm(),
@@ -69,9 +64,7 @@ def registrar_pedidos(request):
     context = {
         "form": PedidoForm(),
         "pedidos": Pedido.objects.all(),
-
     }
-
     return render(request, "AppValfosca/pedidos.html", context)
 
 
@@ -81,7 +74,6 @@ def cancelacion_pedidos(request):
         "form": CancelacionForm(),
         "cancelaciones": Cancelacion.objects.all(),
     }
-
     return render(request, "AppValfosca/cancelaciones.html", context)
 
 
@@ -96,10 +88,6 @@ def registrar_cancelaciones(request):
 
 
 
-def busqueda(request):
-
-    return render(request, "AppValfosca/buscar.html")
-
 
 
 def buscar(request):
@@ -111,7 +99,6 @@ def buscar(request):
         "minoristas": Minorista.objects.filter(nombre__icontains = criterio).all(),
         "pedidos": Pedido.objects.filter(nombre_y_apellido_del_comprador__icontains = criterio).all(),
         "cancelaciones": Cancelacion.objects.filter(nombre_y_apellido_del_comprador__icontains = criterio).all(),
-
     }
     return render(request, "AppValfosca/buscar-todos.html", context)
 
